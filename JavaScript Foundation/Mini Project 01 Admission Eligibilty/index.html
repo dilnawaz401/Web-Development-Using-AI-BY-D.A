@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Engineering Admission Check</title>
+    <style>
+      body {
+        max-width: 640px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        color: #1f2937;
+        font: 1rem/1.5 system-ui, sans-serif;
+      }
+
+      form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      label {
+        display: grid;
+        gap: 0.3rem;
+      }
+
+      input,
+      button {
+        box-sizing: border-box;
+        padding: 0.6rem;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .result {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 0.4rem;
+      }
+
+      .success {
+        background: #e8f5e9;
+      }
+
+      .failure,
+      .error {
+        background: #ffebee;
+      }
+    </style>
+    <script src="admission.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Software Engineering Admission Check</h1>
+      <p>Enter your name and grades to check the sample admission criteria.</p>
+
+      <form id="admission-form">
+        <label for="name">
+          Applicant's full name
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </label>
+
+        <label for="mathematics">
+          Mathematics grade (0-100)
+          <input id="mathematics" name="mathematics" type="number" min="0" max="100" step="any" required />
+        </label>
+
+        <label for="english">
+          English grade (0-100)
+          <input id="english" name="english" type="number" min="0" max="100" step="any" required />
+        </label>
+
+        <label for="physics">
+          Physics grade (0-100)
+          <input id="physics" name="physics" type="number" min="0" max="100" step="any" required />
+        </label>
+
+        <label for="chemistry">
+          Chemistry grade (0-100)
+          <input id="chemistry" name="chemistry" type="number" min="0" max="100" step="any" required />
+        </label>
+
+        <label for="computer-science">
+          Computer Science grade (0-100)
+          <input id="computer-science" name="computer-science" type="number" min="0" max="100" step="any" required />
+        </label>
+
+        <button type="submit">Check eligibility</button>
+      </form>
+
+      <section id="result" aria-live="polite"></section>
+    </main>
+  </body>
+</html>

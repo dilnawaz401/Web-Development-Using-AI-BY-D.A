@@ -1,0 +1,198 @@
+/* iPhone-style calculator */
+
+:root {
+    --bg: #000000;
+    --display-color: #ffffff;
+    --key-num: #333333;
+    --key-num-active: #737373;
+    --key-fn: #a5a5a5;
+    --key-fn-text: #000000;
+    --key-fn-active: #d4d4d4;
+    --key-op: #ff9f0a;
+    --key-op-active: #fac06a;
+    --key-op-text: #ffffff;
+    --radius-key: 50%;
+    --gap: 12px;
+    --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-stack);
+    background: var(--bg);
+    color: var(--display-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 20px)
+        max(env(safe-area-inset-bottom, 20px), 28px) env(safe-area-inset-left, 20px);
+}
+
+.calculator {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.app-label {
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 10px;
+}
+
+.display {
+    text-align: right;
+    padding: 8px 8px 16px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.display__expression {
+    min-height: 1.5em;
+    max-width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.display__value {
+    margin: 0;
+    font-size: clamp(3.5rem, 14vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    word-break: break-all;
+    color: var(--display-color);
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+    padding-bottom: 4px;
+}
+
+.key {
+    position: relative;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    aspect-ratio: 1;
+    border-radius: var(--radius-key);
+    transition: background 0.08s ease, transform 0.06s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.key:active {
+    transform: scale(0.96);
+}
+
+.key--num {
+    background: var(--key-num);
+    color: var(--display-color);
+}
+
+.key--num:active {
+    background: var(--key-num-active);
+}
+
+.key--fn {
+    background: var(--key-fn);
+    color: var(--key-fn-text);
+}
+
+.key--fn:active {
+    background: var(--key-fn-active);
+}
+
+.key--op {
+    background: var(--key-op);
+    color: var(--key-op-text);
+}
+
+.key--op:active {
+    background: var(--key-op-active);
+}
+
+.key--op.is-selected {
+    background: var(--display-color);
+    color: var(--key-op);
+}
+
+/* Zero spans two columns — pill shape */
+.key--zero {
+    grid-column: span 2;
+    aspect-ratio: auto;
+    border-radius: 999px;
+    text-align: left;
+    padding-left: 28px;
+}
+
+.key--small-label {
+    font-size: 1.65rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (min-width: 480px) {
+    body {
+        justify-content: center;
+        padding: 40px 24px;
+    }
+
+    .display {
+        min-height: 140px;
+    }
+
+    .key {
+        font-size: 2.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .key {
+        transition: none;
+    }
+
+    .key:active {
+        transform: none;
+    }
+}
