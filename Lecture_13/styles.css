@@ -1,0 +1,23 @@
+div {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effects */
+div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: #667eea;
+}
+
+/* Individual box colors */
+div:nth-child(1) {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+}

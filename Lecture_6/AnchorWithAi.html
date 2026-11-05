@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Links Page</title>
+    <link rel="stylesheet" href="css/anchor-styles.css">
+</head>
+<body>
+
+    <!-- Main content container -->
+    <div>
+
+        <!-- Page heading -->
+        <h1>Welcome to My Web Page</h1>
+
+        <!-- Intro paragraph -->
+        <p>
+            This page demonstrates different types of links in HTML:
+            opening in a new tab, navigating to another page, and jumping within the same page.
+        </p>
+
+        <!-- Link that opens in a new tab -->
+        <!-- target="_blank" is used to open the link in a new tab -->
+        <p>
+            <a href="https://www.google.com" target="_blank">Visit Google (New Tab)</a>
+        </p>
+
+        <!-- Link to a different page -->
+        <!-- This assumes another file named 'about.html' exists -->
+        <p>
+            <a href="about.html">Go to About Page</a>
+        </p>
+
+        <!-- Link to a section on the same page -->
+        <!-- This links to the section with id="section1" -->
+        <p>
+            <a href="#section1">Go to Section 1 (Same Page)</a>
+        </p>
+
+    </div>
+
+    <!-- Target section for same-page navigation -->
+    <div id="section1">
+        <!-- Section heading -->
+        <h2>Section 1</h2>
+
+        <!-- Section content -->
+        <p>
+            You have reached Section 1 using a same-page link.
+        </p>
+    </div>
+
+</body>
+</html>
